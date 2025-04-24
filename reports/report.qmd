@@ -1,6 +1,7 @@
 ---
-title: "Tutorial 6: Refactoring R Code"
+title: "My Tutorial"
 format: html
+output-dir: docs
 ---
 
 # Introduction

@@ -39,14 +39,6 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
-# Ignore everything in the docs/ directory
-docs/*
-
-# But don't ignore the files needed for GitHub Pages
-!docs/index.html
-!docs/report.html
-!docs/**/*.pdf
-
 # translation temp files
 po/*~
 

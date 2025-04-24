@@ -1,23 +1,36 @@
 ---
 title: "Tutorial 6: Refactoring R Code"
+format: html
 ---
 
 # Introduction
 
-In this tutorial, you will refactor the code into separate scripts corresponding to each section. The dataset we will use comes from the `palmerpenguins` package, which contains measurements of penguins from three species.
+In this tutorial, we refactored the code into separate scripts corresponding to each section. The dataset comes from the `palmerpenguins` package, which contains measurements of penguins from three species. All results shown below are generated from scripts and saved outputs.
 
 ## Load Libraries and Data
-
 ```{r}
-#| echo: fenced
+#| echo: false
+#| message: false
+#| warning: false
+#| results: "hide"
+
 library(tidyverse)
 library(palmerpenguins)
 library(tidymodels)
+library(knitr)
+```
 
-data <- penguins
+We used the `palmerpenguins`, `tidyverse`, and `tidymodels` packages.  
+Initial data cleaning (e.g., removing `NA` values) was handled in the scripts.
 
-# Initial cleaning: Remove missing values
-data <- data %>% drop_na()
+To inspect the data structure:
+
+```{r}
+#| echo: false
+
+glimpse_data <- read.delim("../results/data_glimpse.txt", sep ="\t", header = TRUE)
+kable(glimpse_data)
+
 ```
 
 # Methods
@@ -25,59 +38,24 @@ data <- data %>% drop_na()
 In this section, we perform exploratory data analysis (EDA) and prepare the data for modeling.
 
 ```{r}
-# Summary statistics
-glimpse(data)
-summarise(data, mean_bill_length = mean(bill_length_mm), mean_bill_depth = mean(bill_depth_mm))
+#| echo: false
 
-# Visualizations
-ggplot(data, aes(x = species, y = bill_length_mm, fill = species)) +
-  geom_boxplot() +
-  theme_minimal()
+summary_stats <- read.delim("../results/summary_statistics.txt", sep = "\t", header = TRUE)
+kable(summary_stats)
 
-# Prepare data for modeling
-data <- data %>%
-  select(species, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g) %>%
-  mutate(species = as.factor(species))
 ```
+
+![Bill Length Boxplot](../results/boxplot_bill_length.png){width=75% #fig-confmat}
 
 # Model
 
 We will fit a classification model using `tidymodels` to predict the species of a penguin based on its physical characteristics.
 
-```{r}
-# Split data
-set.seed(123)
-data_split <- initial_split(data, strata = species)
-train_data <- training(data_split)
-test_data <- testing(data_split)
-
-# Define model
-penguin_model <- nearest_neighbor(mode = "classification", neighbors = 5) %>%
-  set_engine("kknn")
-
-# Create workflow
-penguin_workflow <- workflow() %>%
-  add_model(penguin_model) %>%
-  add_formula(species ~ .)
-
-# Fit model
-penguin_fit <- penguin_workflow %>%
-  fit(data = train_data)
-```
-
 # Results
 
 We evaluate the performance of the model using the test dataset.
 
-```{r}
-# Predict on test data
-predictions <- predict(penguin_fit, test_data, type = "class") %>%
-  bind_cols(test_data)
-
-# Confusion matrix
-conf_mat <- conf_mat(predictions, truth = species, estimate = .pred_class)
-conf_mat
-```
+![Confusion Matrix for our model](../results/confusion_matrix.png){width=75% #fig-confmat}
 
 # Conclusion
 

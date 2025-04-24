@@ -24,4 +24,4 @@ reports: docs reports/report.qmd
 	cp reports/report.html docs/index.html
 
 clean:
-	rm -rf results/* data/* 
+	rm -rf results/* data/* docs/* reports/*.html reports/*.pdf

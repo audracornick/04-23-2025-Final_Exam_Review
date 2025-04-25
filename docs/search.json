@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "reports/report.html",
+    "href": "reports/report.html",
+    "title": "My Tutorial",
+    "section": "",
+    "text": "In this tutorial, we refactored the code into separate scripts corresponding to each section. The dataset comes from the palmerpenguins package, which contains measurements of penguins from three species. All results shown below are generated from scripts and saved outputs.\n\n\nWe used the palmerpenguins, tidyverse, and tidymodels packages.\nInitial data cleaning (e.g., removing NA values) was handled in the scripts.\nTo inspect the data structure:\n\n\n\n\n\n\n\n\nRows..333\n\n\n\n\nColumns: 8\n\n\n$ species  Adelie, Adelie, Adelie, Adelie, Adelie, A…\n\n\n\n$ island  Torgersen, Torgersen, Torgersen, Torgersen, … $ bill_length_mm  39.1, 39.5, 40.3, 36.7, 39.3, 38.9, 39.2, 41.1, 38.6… $ bill_depth_mm  18.7, 17.4, 18.0, 19.3, 20.6, 17.8, 19.6, 17.6, 21.2… $ flipper_length_mm  181, 186, 195, 193, 190, 181, 195, 182, 191, 198, 18… $ body_mass_g  3750, 3800, 3250, 3450, 3650, 3625, 4675, 3200, 3800… $ sex  male, female, female, female, male, femal… | |$ year  2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007… |"
+  },
+  {
+    "objectID": "reports/report.html#load-libraries-and-data",
+    "href": "reports/report.html#load-libraries-and-data",
+    "title": "My Tutorial",
+    "section": "",
+    "text": "We used the palmerpenguins, tidyverse, and tidymodels packages.\nInitial data cleaning (e.g., removing NA values) was handled in the scripts.\nTo inspect the data structure:\n\n\n\n\n\n\n\n\nRows..333\n\n\n\n\nColumns: 8\n\n\n$ species  Adelie, Adelie, Adelie, Adelie, Adelie, A…\n\n\n\n$ island  Torgersen, Torgersen, Torgersen, Torgersen, … $ bill_length_mm  39.1, 39.5, 40.3, 36.7, 39.3, 38.9, 39.2, 41.1, 38.6… $ bill_depth_mm  18.7, 17.4, 18.0, 19.3, 20.6, 17.8, 19.6, 17.6, 21.2… $ flipper_length_mm  181, 186, 195, 193, 190, 181, 195, 182, 191, 198, 18… $ body_mass_g  3750, 3800, 3250, 3450, 3650, 3625, 4675, 3200, 3800… $ sex  male, female, female, female, male, femal… | |$ year  2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007… |"
+  }
+]

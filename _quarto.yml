@@ -1,0 +1,23 @@
+project:
+  type: website
+  render:
+    - reports/report.qmd
+  output-dir: docs
+
+website:
+  title: "Final Exam Review"
+  navbar:
+    left:
+      - href: reports/report.html
+        text: Home
+      - href: about.qmd
+        text: About
+
+format:
+  html:
+    theme: 
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
